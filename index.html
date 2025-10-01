@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Bocilku Tersayang ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #ffebee, #fce4ec, #f8bbd0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .love-message {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 25px 0;
+        }
+        
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            border: 10px solid #f8bbd0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-frame:hover img {
+            transform: scale(1.05);
+        }
+        
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+            color: #e91e63;
+        }
+        
+        .audio-player {
+            margin-top: 30px;
+            background: #fce4ec;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .love-quote {
+            font-style: italic;
+            color: #e91e63;
+            margin-top: 25px;
+            font-size: 1.1em;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts"></div>
+    
+    <div class="container">
+        <h1>❤️ Happy Girlfriend Day Bocil❤️</h1>
+        
+        <div class="love-message">
+            <p>Hai Bocil Happy Girlfriend Day! Semoga semua hal baik selalu ada di hidupmu. Btw, jangan lupa bahagiain diri sendiri juga yaa 😉.</p>
+        </div>
+        
+        <div class="photo-frame">
+            <img src="img/Mygirl2.jpg" alt="Foto romantis kami berdua dengan latar belakang indah dan suasana penuh cinta">
+        </div>
+        
+        <div class="audio-player">
+            <audio id="mygirl" controls autoplay loop>
+                <source src="music/mygirl.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung elemen audio.
+            </audio>
+        </div>
+        
+        <div class="love-quote">
+            "Happy Girlfriend Day! Kamu jangan kebanyakan senyum ya, soalnya takut aku makin jatuh hati wkwk 🤭."
+        </div>
+    </div>
+
+    <script>
+        // Script untuk membuat hujan hati
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartsCount = 50;
+            
+            for (let i = 0; i < heartsCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 6 + 4) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Pastikan audio diputar otomatis
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            const audio = document.getElementById('mygirl');
+            audio.volume = 0.5; // Volume 50%%
+            
+            // Untuk mengatasi kebijakan autoplay browser
+            audio.play().catch(error => {
+                console.log('Autoplay prevented: ', error);
+            });
+        });
+    </script>
+</body>
+</html>
